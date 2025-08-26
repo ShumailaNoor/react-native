@@ -1,0 +1,32 @@
+*{
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+/* Margin */
+#margin {
+  background-color: lightsteelblue;
+  padding: 30px;
+}
+
+/* Border */
+#border {
+  background-color: darkslategray;
+  padding: 10px;
+}
+
+/* Padding */
+#padding {
+  background-color: lavenderblush; 
+  padding: 30px;
+}
+
+/* Content */
+#content {
+  background-color: chocolate; 
+  padding: 30px;
+  font-weight: bold;
+}

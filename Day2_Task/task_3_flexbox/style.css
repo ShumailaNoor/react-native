@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;           
+  background-color: cadetblue;
+  padding: 15px;
+  gap: 20px;                 
+}
+
+.navbar a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 15px;
+}
+
+.navbar a:hover {
+  background-color: white;
+  color: cornflowerblue;
+  border-radius: 5px;
+}
+
+/* 3 column section */
+.flex-section {
+  display: flex; 
+  align-items: stretch;           
+  gap: 20px;
+  padding: 30px;
+  background-color: white
+}
+
+.box {
+  flex: 1;                        
+  padding: 30px;
+  background-color: chocolate;
+  color: white;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.box:hover {
+  transform: translateY(15px);
+}
