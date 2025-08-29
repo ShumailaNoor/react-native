@@ -43,13 +43,8 @@
 ## 5. Responsive Design
 - **Mobile-first approach** → design for small screens first, then expand.  
 - **Media Queries** → change styles based on screen size.  
-```css
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-  }
-}
 
+---
 
 ## How to Open Each Task
 
