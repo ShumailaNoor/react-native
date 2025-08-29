@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.card-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+.card {
+    flex: 1;
+    min-height: 200px;
+    border-radius: 5px;
+    background-color: cadetblue;
+    border: 2px dashed darkslategrey;
+    text-align: center;
+    align-content: center;
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column;
+  }
+}
