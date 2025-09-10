@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Info Card Generator</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      
+    }
+    .container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .card {
+      border: 1px solid #5c5c5c;
+      border-radius: 10px;
+      padding: 15px;
+      flex: 1;
+
+    }
+    .status {
+      font-weight: bold;
+    }
+    .online { 
+      color: green; 
+    }
+    .offline { 
+      color: red; 
+    }
+    button {
+      margin: 15px 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: #222, 1;
+    }
+    .dark {
+      background: #222;
+      color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">User Info Card Generator</h1>
+  <button id="theme" >Change Theme</button> 
+  <div class="container" id="userContainer"></div>
+
+  <script>
+
+    const users = [
+        { name: "Shumaila", 
+        age: 23, 
+        location: "Faisalabad", 
+        isOnline: true,
+        },
+        { name: "Saira", 
+          age: 25, 
+          location: "Karachi", 
+          isOnline: false,
+        },
+        { name: "Umaira", 
+          age: 24, 
+          location: "Sialkot", 
+          isOnline: true,
+        }
+   ];
+
+ 
+    function addHobbies(...hobbies) {
+      return hobbies.join(", ");
+    }
+
+
+    function generateCards() {
+      const container = document.getElementById("userContainer");
+      container.innerHTML = "";
+
+      users.forEach(user => {
+
+        const extendedUser = {
+          ...user,
+          hobbies: addHobbies(["Reading", "Gaming", "Coding"])
+        };
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+          <h3>${extendedUser.name}</h3>
+          <p>Age: ${extendedUser.age}</p>
+          <p>Location: ${extendedUser.location}</p>
+          <p class="status ${extendedUser.isOnline ? "online" : "offline"}">
+            ${extendedUser.isOnline ? "Online" : "Offline"}
+          </p>
+          <p><strong>Hobbies:</strong> ${extendedUser.hobbies}</p>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    generateCards();
+
+    document.getElementById("theme").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
+</body>
+</html>
