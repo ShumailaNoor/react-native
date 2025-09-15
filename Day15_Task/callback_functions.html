@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Callback Function Practice</title>
+    </head>
+    <body>
+        <h2>Callback Function Practice</h2>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <button id="btn">Button</button>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+    </body>
+    <script>
+    // 1. Execute a Callback after 5 seconds    
+        setTimeout( myFunction, 5000);
+
+    function myFunction() {
+        let msg = "Hello after 5 seconds!"
+      document.getElementById("demo1").innerHTML = msg;
+    }
+
+    // 2. Callback to log "Hello World" after printing "Start"
+    function printMessage(callback) {
+      document.getElementById("demo2").innerHTML += "<br>Start";
+      callback();
+    }
+    
+    // 3. Event Listener using a Callback
+    printMessage(function() {
+      document.getElementById("demo2").innerHTML += "<br>Hello World";
+    });
+
+    document.getElementById("btn").addEventListener("click", myCallback);
+    function myCallback(){
+        document.getElementById("demo3").innerHTML += "Button Clicked!";
+    }
+    
+    // 4. Display Callback
+    function myDisplayer(value) {
+    document.getElementById("demo4").innerHTML = value;
+    }
+
+    function myCalculator(num1, num2, myCallback) {
+        let sum = num1 + num2;
+        myCallback(sum);
+    }
+
+    myCalculator(5, 5, myDisplayer);
+    
+    // 5. Callback Hell
+    setTimeout(function() {
+      document.getElementById("demo5").innerHTML += "<br>Step 1";
+      setTimeout(function() {
+        document.getElementById("demo5").innerHTML += "<br>Step 2";
+        setTimeout(function() {
+          document.getElementById("demo5").innerHTML += "<br>Step 3";
+          setTimeout(function() {
+            document.getElementById("demo5").innerHTML += "<br>Step 4";
+            setTimeout(function() {
+              document.getElementById("demo5").innerHTML += "<br>Step 5";
+              setTimeout(function() {
+                document.getElementById("demo5").innerHTML += "<br>Step 6";
+                setTimeout(function() {
+                  document.getElementById("demo5").innerHTML += "<br>Step 7";
+                }, 1000);
+              }, 1000);
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+    </script>
+</html>

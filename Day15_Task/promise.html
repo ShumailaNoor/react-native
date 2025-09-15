@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Promise Practice</title>
+    </head>
+    <body>
+        <h2>Promise Practice</h2>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+    <script>
+
+    // 1. Promise that resolves after 1 second
+    let myPromise = new Promise(function(myResolve, myReject) {
+      setTimeout(function() { myResolve("done"); }, 1000);
+    });
+
+    myPromise.then(function(value) {
+      document.getElementById("demo1").innerHTML = value;
+    });
+
+    // 2. Promise that rejects with an error
+    let errorPromise = new Promise(function(myResolve, myReject) {
+      myReject("error");
+    });
+
+    errorPromise.catch(function(error) {
+      document.getElementById("demo2").innerHTML +=  error;
+    });
+
+    // 3. Chain two Promises
+    let firstPromise = new Promise(function(resolve, reject) {
+      setTimeout(() => resolve("Step 1"), 1000);
+    });
+
+    firstPromise.then(function(value) {
+      document.getElementById("demo3").innerHTML += value;
+      return new Promise(function(resolve) {
+        setTimeout(() => resolve("<br>Step 2"), 1000);
+      });
+    }).then(function(value) {
+      document.getElementById("demo3").innerHTML += value;
+    });
+
+    // 4. Convert setTimeout into Promise-based delay
+    function delay(ms) {
+      return new Promise(function(resolve) {
+        setTimeout(resolve, ms);
+      });
+    }
+
+    delay(4000).then(function() {
+      document.getElementById("demo4").innerHTML += "After 4 seconds...";
+    });
+
+    // 5. Fetch API data with Promise
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("demo5").innerHTML += "Title: " + data.title;
+      })
+      .catch(error => {
+        document.getElementById("demo5").innerHTML += "Error: " + error;
+      });
+
+      fetch("https://jsonplaceholder.typicode.commmm/posts/1") //wrong url
+      .then(response => response.json())
+      .catch(error => {
+        document.getElementById("demo6").innerHTML +=  error;
+      });
+  </script>
+    </body>
+</html>
