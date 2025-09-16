@@ -1,4 +1,4 @@
-# Complete Guide to Async JavaScript - Summary of Today’s Learning
+# Summary of Today’s Learning
 
 ## Topics Covered
 - Asynchronous Programming in JavaScript
@@ -30,17 +30,6 @@
   - Hard error handling
   - Inversion of control
 
-```javascript
-// Example of Callback Hell
-getData(function(a) {
-    getMoreData(a, function(b) {
-        getEvenMoreData(b, function(c) {
-            console.log(c);
-        });
-    });
-});
-```
-
 ---
 
 ### 3. Promises
@@ -57,14 +46,6 @@ getData(function(a) {
   * Errors handled with `.catch()`
   * Avoids callback hell
 
-```javascript
-// Promise Chaining
-getData()
-  .then(result => getMoreData(result))
-  .then(result => getEvenMoreData(result))
-  .catch(error => console.error(error));
-```
-
 ---
 
 ### 4. async/await
@@ -74,36 +55,12 @@ getData()
 * Easier to read and maintain.
 * Error handling via `try/catch`.
 
-```javascript
-async function fetchData() {
-    try {
-        const response = await fetch('/api/data');
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-```
-
 ---
 
 ### 5. Error Handling
 
 * With Promises → `.catch()`
 * With async/await → `try/catch`
-
-```javascript
-async function fetchUserData() {
-    try {
-        const response = await fetch('/api/users');
-        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-        return await response.json();
-    } catch (error) {
-        console.error('Fetch failed:', error);
-    }
-}
-```
 
 ---
 
