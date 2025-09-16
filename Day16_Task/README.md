@@ -1,4 +1,3 @@
-````markdown
 # Complete Guide to Async JavaScript - Summary of Today’s Learning
 
 ## Topics Covered
@@ -40,7 +39,7 @@ getData(function(a) {
         });
     });
 });
-````
+```
 
 ---
 
