@@ -1,4 +1,4 @@
-# Complete JSON & API Learning Guide
+# Summary of Today's Learning
 
 This is a summary of what I learned today about **JSON** and **APIs**, along with hands-on coding practice.
 
@@ -25,7 +25,7 @@ Example of valid JSON:
   "hobbies": ["reading", "coding"],
   "active": true
 }
-
+```
 
 ### JSON vs JavaScript Objects
 
@@ -70,7 +70,3 @@ Most APIs are REST-based, using HTTP methods:
 * 400 Bad Request – invalid input
 * 404 Not Found – resource does not exist
 * 500 Internal Server Error – problem on the server
-
----
-
-## Using fetch() in JavaScript
