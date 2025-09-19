@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Event Delegation Example</title>
+</head>
+<body>
+  <ul id="list">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Cherry</li>
+    <li>Kiwi</li>
+    <li>Blueberry</li>
+  </ul>
+
+  <script>
+    let itemList = document.getElementById("list");
+    itemList.addEventListener("click", function(event) {
+      if (event.target && event.target.nodeName === "LI") {
+        console.log(event.target.textContent);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Light/Dark Mode Toggle</title>
+  <style>
+
+    body {
+      background-color: white;
+      color: black;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+    }
+
+    .dark {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Light/Dark Mode</h1>
+  <p id="mode-text">This is Light mode.</p>
+  <button id="toggle-btn">Dark Theme</button>
+
+  <script>
+    let button = document.getElementById("toggle-btn");
+    let text = document.getElementById("mode-text");
+    let body = document.body;
+
+    button.addEventListener("click", function() {
+      body.classList.toggle("dark");
+
+      if (body.classList.contains("dark")) {
+        text.textContent = "This is Dark mode."
+        button.textContent = "Light Theme";
+      } else {
+        button.textContent = "This is Light mode.";
+        button.textContent = "Dark Theme";
+      }
+    });
+  </script>
+</body>
+</html>

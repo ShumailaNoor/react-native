@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Model window</title>
+    </head>
+    <body>
+        <button id="showPopup">Show Popup</button>
+        <div id="popup" style="display: none;">
+        <h3>This is a popup!</h3>
+        <p>This is popup content.</p>
+        <button id="hidePopup">Close Popup</button>
+        </div>
+        <script>
+            function popupModel() {
+                let showButton = document.getElementById('showPopup');
+                let popup = document.getElementById('popup');
+                let hideButton = document.getElementById('hidePopup');
+    
+                popup.style.cssText = `
+                    background: lightgray;
+                    padding: 20px;
+                    border: 2px solid black;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                `;
+    
+                    showButton.addEventListener('click', function() {
+                    popup.style.display = 'block';
+                });
+    
+                hideButton.addEventListener('click', function() {
+                    popup.style.display = 'none';
+
+                });
+            }
+
+            popupModel();
+        </script>
+    </body>
+</html>

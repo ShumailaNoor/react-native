@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Form Input Reader</title>
+    </head>
+    <body>
+        <form id="form">
+            <input id="input" type="text" placeholder="Enter your Name">
+            <button type="submit">Submit</button>             
+        </form>
+        <script>
+        function fromInputREader(){    
+            let form = document.getElementById("form");
+            let input = document.getElementById("input");
+            form.addEventListener('submit', ()=> {        
+        let userInput = input.value;
+        if (userInput.trim() === '') {
+            alert("Please enter Name");
+        } else {
+            alert("NAme: " + userInput);
+            input.value = '';
+           }
+         });
+         }
+        fromInputREader();
+        </script>
+    </body>
+</html>

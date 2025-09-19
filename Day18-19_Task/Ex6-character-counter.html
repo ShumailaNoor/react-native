@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character Counter</title>
+    </head>
+    <body>
+        <textarea id="textArea" placeholder="Enter Text"></textarea>
+        <div id="charCount">Characters: 0</div>
+    <script>
+        function characterCounter() {
+    let textarea = document.querySelector('#textArea');
+    let counter = document.querySelector('#charCount');
+    
+    function updateCounter() {
+        let text = textarea.value;
+        let charCount = text.length;
+        
+        counter.textContent = `Characters: ${charCount}`;
+        }
+    textarea.addEventListener('input', updateCounter);
+    
+    updateCounter();
+}
+
+characterCounter();
+    </script>
+    </body>
+</html>

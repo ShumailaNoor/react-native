@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Highlight Text</title>
+    </head>
+    <body>
+        <p id="text">Hello World</p>
+        <button id="highlight-btn">Highlight Text</button>
+        <script >
+            function highlightText(){
+                let text = document.getElementById("text");
+                let button = document.getElementById("highlight-btn");
+                button.addEventListener('click', function(){
+                text.style.color = 'red';
+                text.style.backgroundColor = 'yellow';
+                console.log('Text highlighted');
+            })
+        }
+        highlightText();
+        </script>
+    </body>
+</html>
