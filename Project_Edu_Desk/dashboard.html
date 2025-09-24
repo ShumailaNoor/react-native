@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduDesk - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+    <div class="nav-header">
+        <img src="assets/logo.png" alt="EduDesk Logo" class="logo" height="50px">
+        <button class="nav-toggle" id="navToggle"><i class="fas fa-times"></i></button>
+    </div>
+    <ul class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link active">
+            <i class="fas fa-chart-line nav-icon"></i>
+            <span class="nav-text">Dashboard</span>
+        </a></li>
+        <li><a href="courses.html" class="nav-link">
+            <i class="fas fa-book nav-icon"></i>
+            <span class="nav-text">Courses</span>
+        </a></li>
+        <li><a href="assignments.html" class="nav-link">
+            <i class="fas fa-pen nav-icon"></i>
+            <span class="nav-text">Assignments</span>
+        </a></li>
+        <li><a href="attendance.html" class="nav-link">
+            <i class="fas fa-calendar-check nav-icon"></i>
+            <span class="nav-text">Attendance</span>
+        </a></li>
+        <li><a href="profile.html" class="nav-link">
+            <i class="fas fa-user nav-icon"></i>
+            <span class="nav-text">Profile</span>
+        </a></li>
+        <li><a href="index.html" class="nav-link logout">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span class="nav-text">Logout</span>
+        </a></li>
+    </ul>
+</nav>
+
+    <main class="main-content">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Welcome back, <span id="studentName">Shumaila</span>!</h1>
+                <p class="current-date" id="currentDate"></p>
+            </div>
+            <div class="header-right">
+                <div class="notification-icon">
+                    <span class="bell"><i class="fas fa-bell"></i></span>
+                    <span class="badge" id="notificationBadge">3</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card courses-card">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <div class="card-content">
+                        <h3 id="totalCourses">5</h3>
+                        <p>Total Courses</p>
+                    </div>
+                </div>
+                
+                <div class="summary-card assignments-card">
+                    <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                    <div class="card-content">
+                        <h3 id="pendingAssignments">3</h3>
+                        <p>Pending Assignments</p>
+                    </div>
+                </div>
+                
+                <div class="summary-card attendance-card">
+                    <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                    <div class="card-content">
+                        <h3 id="averageAttendance">85%</h3>
+                        <p>Average Attendance</p>
+                    </div>
+                </div>
+                
+                <div class="summary-card gpa-card">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="card-content">
+                        <h3 id="currentGPA">3.4</h3>
+                        <p>Current GPA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Courses -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2>Recent Courses</h2>
+                    <a href="courses.html" class="view-all">View All  <span><i class="fa fa-arrow-right"></i></span></a>
+                </div>
+                <div class="courses-grid" id="recentCourses">
+                </div>
+            </div>
+
+            <!-- Upcoming Assignments -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2>Upcoming Assignments</h2>
+                    <a href="assignments.html" class="view-all">View All  <span><i class="fa fa-arrow-right"></i></span></a>
+                </div>
+                <div class="assignments-list" id="upcomingAssignments">
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2>This Week's Schedule</h2>
+                </div>
+                <div class="schedule-preview" id="weeklySchedule">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

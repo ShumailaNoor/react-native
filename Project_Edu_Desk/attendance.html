@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduDesk - Attendance</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/attendance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+        <div class="nav-header">
+            <img src="assets/logo.png" alt="EduDesk Logo" class="logo" height="50px">
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="nav-link">
+                <i class="fas fa-chart-line nav-icon"></i>
+                <span class="nav-text">Dashboard</span>
+            </a></li>
+            <li><a href="courses.html" class="nav-link">
+                <i class="fas fa-book nav-icon"></i>
+                <span class="nav-text">Courses</span>
+            </a></li>
+            <li><a href="assignments.html" class="nav-link">
+                <i class="fas fa-pen nav-icon"></i>
+                <span class="nav-text">Assignments</span>
+            </a></li>
+            <li><a href="attendance.html" class="nav-link active">
+                <i class="fas fa-calendar-check nav-icon"></i>
+                <span class="nav-text">Attendance</span>
+            </a></li>
+            <li><a href="profile.html" class="nav-link">
+                <i class="fas fa-user nav-icon"></i>
+                <span class="nav-text">Profile</span>
+            </a></li>
+            <li><a href="index.html" class="nav-link logout">
+                <i class="fas fa-sign-out-alt nav-icon"></i>
+                <span class="nav-text">Logout</span>
+            </a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Search and Filter Section -->
+        <div class="controls-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search subjects..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="filter-container">
+                <select id="attendanceFilter" class="filter-select">
+                    <option value="all">All Attendance</option>
+                    <option value="excellent">Excellent (90%+)</option>
+                    <option value="good">Good (75-89%)</option>
+                    <option value="poor">Poor (Below 75%)</option>
+                </select>
+                
+                <select id="sortBy" class="filter-select">
+                    <option value="subject">Sort by Subject</option>
+                    <option value="percentage">Sort by Percentage</option>
+                    <option value="attended">Sort by Classes Attended</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Attendance Statistics -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="card-icon excellent"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-content">
+                    <h3 id="averageAttendance">85%</h3>
+                    <p>Average Attendance</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="card-icon"><i class="fas fa-calendar-day"></i></div>
+                <div class="stat-content">
+                    <h3 id="totalClasses">100</h3>
+                    <p>Total Classes</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="card-icon good"><i class="fas fa-user-check"></i></div>
+                <div class="stat-content">
+                    <h3 id="classesAttended">84</h3>
+                    <p>Classes Attended</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="card-icon poor"><i class="fas fa-user-times"></i></div>
+                <div class="stat-content">
+                    <h3 id="classesMissed">16</h3>
+                    <p>Classes Missed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attendance Section -->
+        <div class="attendance-section">
+            <div class="section-header">
+                <h2>Subject-wise Attendance <span class="subject-count" id="displayedCount">(0)</span></h2>
+            </div>
+            
+            <div class="table-container">
+                <table class="attendance-table" id="attendanceTable">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Classes Attended</th>
+                            <th>Total Classes</th>
+                            <th>Percentage</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceBody">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon"><i class="fas fa-calendar-times"></i></div>
+                <h3>No attendance records found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

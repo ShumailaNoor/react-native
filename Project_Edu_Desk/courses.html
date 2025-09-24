@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduDesk - Courses</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+    <div class="nav-header">
+        <img src="assets/logo.png" alt="EduDesk Logo" class="logo" height="50px">
+        <button class="nav-toggle" id="navToggle"><i class="fas fa-times"></i></button>
+    </div>
+    <ul class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link ">
+            <i class="fas fa-chart-line nav-icon"></i>
+            <span class="nav-text">Dashboard</span>
+        </a></li>
+        <li><a href="courses.html" class="nav-link active">
+            <i class="fas fa-book nav-icon"></i>
+            <span class="nav-text">Courses</span>
+        </a></li>
+        <li><a href="assignments.html" class="nav-link">
+            <i class="fas fa-pen nav-icon"></i>
+            <span class="nav-text">Assignments</span>
+        </a></li>
+        <li><a href="attendance.html" class="nav-link">
+            <i class="fas fa-calendar-check nav-icon"></i>
+            <span class="nav-text">Attendance</span>
+        </a></li>
+        <li><a href="profile.html" class="nav-link">
+            <i class="fas fa-user nav-icon"></i>
+            <span class="nav-text">Profile</span>
+        </a></li>
+        <li><a href="index.html" class="nav-link logout">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span class="nav-text">Logout</span>
+        </a></li>
+    </ul>
+</nav>
+
+
+    <main class="main-content">
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Search and Filter Section -->
+        <div class="controls-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search courses..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="filter-container">
+                <select id="gradeFilter" class="filter-select">
+                    <option value="">All Grades</option>
+                    <option value="A">A Grade</option>
+                    <option value="B">B Grade</option>
+                    <option value="C">C Grade</option>
+                </select>
+                
+                <select id="progressFilter" class="filter-select">
+                    <option value="">All Progress</option>
+                    <option value="high">High (80%+)</option>
+                    <option value="medium">Medium (50-79%)</option>
+                    <option value="low">Low (Below 50%)</option>
+                </select>
+                
+                <select id="sortBy" class="filter-select">
+                    <option value="name">Sort by Name</option>
+                    <option value="progress">Sort by Progress</option>
+                    <option value="grade">Sort by Grade</option>
+                    <option value="instructor">Sort by Instructor</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Course Statistics -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="card-icon"><i class="fas fa-book"></i></div>
+                <div class="stat-content">
+                    <h3 id="totalCoursesCount">5</h3>
+                    <p>Total Courses</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="stat-content">
+                    <h3 id="averageProgress">68%</h3>
+                    <p>Average Progress</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                <div class="stat-content">
+                    <h3 id="totalCredits">17</h3>
+                    <p>Total Credits</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="card-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-content">
+                    <h3 id="averageGPA">3.4</h3>
+                    <p>Current GPA</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-section">
+            <div class="section-header">
+                <h2>All Courses <span class="course-count" id="displayedCount">(5)</span></h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" id="gridView">
+                        <i class="fas fa-th-large view-icon"></i> Grid
+                    </button>
+                    <button class="view-btn" data-view="list" id="listView">
+                        <i class="fas fa-list view-icon"></i> List
+                    </button>
+                </div>
+            </div>
+            
+            <div class="courses-container" id="coursesContainer"></div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon"><i class="fas fa-search"></i></div>
+                <h3>No courses found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/courses.js"></script>
+</body>
+</html>

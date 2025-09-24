@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduDesk - Assignments</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/assignments.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar">
+        <div class="nav-header">
+            <img src="assets/logo.png" alt="EduDesk Logo" class="logo" height="50px">
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="nav-link">
+                <i class="fas fa-chart-line nav-icon"></i>
+                <span class="nav-text">Dashboard</span>
+            </a></li>
+            <li><a href="courses.html" class="nav-link">
+                <i class="fas fa-book nav-icon"></i>
+                <span class="nav-text">Courses</span>
+            </a></li>
+            <li><a href="assignments.html" class="nav-link active">
+                <i class="fas fa-pen nav-icon"></i>
+                <span class="nav-text">Assignments</span>
+            </a></li>
+            <li><a href="attendance.html" class="nav-link">
+                <i class="fas fa-calendar-check nav-icon"></i>
+                <span class="nav-text">Attendance</span>
+            </a></li>
+            <li><a href="profile.html" class="nav-link">
+                <i class="fas fa-user nav-icon"></i>
+                <span class="nav-text">Profile</span>
+            </a></li>
+            <li><a href="index.html" class="nav-link logout">
+                <i class="fas fa-sign-out-alt nav-icon"></i>
+                <span class="nav-text">Logout</span>
+            </a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Search and Filter Section -->
+        <div class="controls-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search assignments..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="filter-container">
+                <select id="statusFilter" class="filter-select">
+                    <option value="all">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="submitted">Submitted</option>
+                </select>
+                
+                <select id="courseFilter" class="filter-select">
+                    <option value="all">All Courses</option>
+                </select>
+                
+                <select id="sortBy" class="filter-select">
+                    <option value="dueDate">Sort by Due Date</option>
+                    <option value="title">Sort by Title</option>
+                    <option value="course">Sort by Course</option>
+                    <option value="status">Sort by Status</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Assignment Statistics -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="card-icon pending"><i class="fas fa-clock"></i></div>
+                <div class="stat-content">
+                    <h3 id="pendingCount">0</h3>
+                    <p>Pending</p>
+                </div>
+            </div>
+            
+            <div class="stat-card submitted">
+                <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-content">
+                    <h3 id="submittedCount">0</h3>
+                    <p>Submitted</p>
+                </div>
+            </div>
+            
+            <div class="stat-card ">
+                <div class="card-icon overdue"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="stat-content">
+                    <h3 id="overdueCount">0</h3>
+                    <p>Overdue</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignments Section -->
+        <div class="assignments-section">
+            <div class="section-header">
+                <h2>All Assignments <span class="assignment-count" id="displayedCount">(0)</span></h2>
+            </div>
+            
+            <div class="table-container">
+                <table class="assignments-table" id="assignmentsTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Course</th>
+                            <th>DueDate</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assignmentsBody">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon"><i class="fas fa-clipboard-list"></i></div>
+                <h3>No assignments found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/assignments.js"></script>
+</body>
+</html>
