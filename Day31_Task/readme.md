@@ -24,7 +24,7 @@ Data was fetched from the **JSONPlaceholder API** (`https://jsonplaceholder.typi
       .then(data => setPosts(data))
       .catch(err => setError(err.message));
   }, []);
-````
+  ```
 
 ### 2. **State Management**
 
