@@ -38,7 +38,7 @@ Today I learned the **basics of React Native** and how it differs from React for
 - Edited `App.js` to display:
   ```jsx
   <Text>Hello, React Native!</Text>
-````
+  ```
 
 * Styled the screen using **Flexbox** to center elements.
 * Learned that React Native layouts depend heavily on **Flexbox** instead of CSS grids or floats.
