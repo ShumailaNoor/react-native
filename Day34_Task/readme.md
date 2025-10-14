@@ -27,18 +27,18 @@
 
 Example:
 
-	```js
-	const styles = StyleSheet.create({
-	container: {
-		backgroundColor: 'blue',
-		padding: 20,
-	},
-	text: {
-		fontSize: 18,
-		color: 'white',
-	},
-	});
-	```
+```js
+const styles = StyleSheet.create({
+container: {
+	backgroundColor: 'blue',
+	padding: 20,
+},
+text: {
+	fontSize: 18,
+	color: 'white',
+},
+});
+```
 
 ---
 
